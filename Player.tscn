@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://res/img/cursor.jpg" type="Texture" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+position = Vector2( 526.408, 571.416 )
+scale = Vector2( 1, 1.27813 )
+script = ExtResource( 1 )
+
+[node name="player" type="Sprite" parent="."]
+
+position = Vector2( -2.41962, 25.2473 )
+scale = Vector2( 1, 2.58978 )
+texture = ExtResource( 2 )
+offset = Vector2( -0.0239258, -11.9477 )
+
+[node name="bullet_shoot" type="Node2D" parent="player"]
+
+position = Vector2( -0.881425, -24.3324 )
+scale = Vector2( 0.279987, 0.0615581 )
+
+
