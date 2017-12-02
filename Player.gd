@@ -4,11 +4,6 @@ const MOVE_SPEED = 5
 var shoot_time=99999
 const BULLET_VELOCITY = 1000
 
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
-
 func _process(delta):
 	var which = get_name()
 	if Input.is_action_pressed("ui_left") and position.x > 0 and rotation_degrees >= -70:
@@ -23,6 +18,5 @@ func _physics_process(delta):
 		var shotvect = (get_node("player/bullet_shoot").global_position - position).normalized()
 		get_parent().add_child(shot) 
 		shot.position = get_node("player/bullet_shoot").global_position
-		shot.set_linear_velocity(shotvect * BULLET_VELOCITY)
-		#$sound_shoot.play()
+		shot.set_axis_velocity(shotvect * BULLET_VELOCITY)
 		shoot_time = 0
