@@ -1,15 +1,25 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game.gd" type="Script" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://res/img/Salnibard.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 20.0
+
 [node name="Game" type="Node2D"]
 
-[node name="sprite" parent="." instance=ExtResource( 1 )]
+script = ExtResource( 1 )
+
+[node name="sprite" parent="." instance=ExtResource( 2 )]
 
 [node name="WallL" type="StaticBody2D" parent="."]
 
@@ -85,5 +95,40 @@ position = Vector2( -11.0497, 0 )
 scale = Vector2( 1, 40 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="Zal" type="RigidBody2D" parent="."]
+
+position = Vector2( 504.602, 111.724 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 2
+mass = 10.0
+friction = 1.0
+bounce = 1.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = true
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+
+[node name="ZalS" type="Sprite" parent="Zal"]
+
+position = Vector2( 2.05557, -1.20564 )
+scale = Vector2( 3.25201, 3.45678 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="collision" type="CollisionShape2D" parent="Zal"]
+
+position = Vector2( 2.2397, -1.28565 )
+scale = Vector2( 2.25142, 3.1096 )
+shape = SubResource( 2 )
 
 
